@@ -334,8 +334,10 @@ function overlay_display_mode(element, mode) {
             }
             del_igre = deli_igre.KONEC_IGRE;
         }
-        if (igralci[isMrMeme].nove_tocke >= 0) {
-            alert("Gospod Nemec je v zmagovalni ekipi.");
+        if (isMrMeme >= 0) {
+            if (igralci[isMrMeme].nove_tocke >= 0) {
+                alert("Gospod Nemec je v zmagovalni ekipi.");
+            }
         }
 
         if (del_igre == deli_igre.KONEC_IGRE) {
@@ -530,3 +532,6 @@ function rezultati() {
 }
 
 // kdo je nemec naj se vidi ob imenu na kartici
+// popravi:
+// na mojem telefonu se ne prikaže gumb za izključitev
+// omogoči skrolanje po rezultatih in navodilih

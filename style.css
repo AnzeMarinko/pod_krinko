@@ -16,11 +16,11 @@ body {
 }
 
 h1 {
-    font-size: 50px;
+    font-size: 40px;
 }
 
 li b {
-    font-size: 30px;
+    font-size: 25px;
 }
 
 header {
@@ -35,7 +35,7 @@ header {
 
 section {
     margin: auto;
-    width: 95%;
+    width: 98%;
     min-width: 300px;
     max-width: 1000px;
 }
@@ -48,7 +48,7 @@ section {
 }
 
 #igra {
-    width: 95%;
+    width: 100%;
     max-width: 1200px;
     display: none;
     /* Hidden by default */
