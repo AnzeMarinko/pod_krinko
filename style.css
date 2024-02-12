@@ -29,6 +29,7 @@ header {
 }
 
 .menu {
+    background: var(--pod-krinko-temno);
     text-align: right;
     display: none;
 }
@@ -157,11 +158,10 @@ input {
     /* Specify a stack order in case you're using a different order for other elements */
     cursor: pointer;
     /* Add a pointer on hover */
+    text-align: center;
 }
 
 #overlay_izkljucitev {
-    position: fixed;
-    /* Sit on top of the page content */
     display: none;
     /* Hidden by default */
     width: 100%;
@@ -178,6 +178,7 @@ input {
     /* Specify a stack order in case you're using a different order for other elements */
     cursor: pointer;
     /* Add a pointer on hover */
+    text-align: center;
 }
 
 #text_izkljucitev {
@@ -191,11 +192,10 @@ input {
     background-color: white;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
+    text-align: center;
 }
 
 #overlay_rezultati {
-    position: fixed;
-    /* Sit on top of the page content */
     display: none;
     /* Hidden by default */
     width: 100%;
@@ -212,19 +212,17 @@ input {
     /* Specify a stack order in case you're using a different order for other elements */
     cursor: pointer;
     /* Add a pointer on hover */
+    text-align: center;
 }
 
 #text_rezultati {
+    margin: 20pt;
     padding: 10px;
     position: absolute;
-    top: 50%;
-    left: 50%;
     border-radius: 8px;
     font-size: 20px;
     color: black;
     background-color: white;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
 }
 
 #overlay_image {
@@ -233,7 +231,6 @@ input {
 }
 
 #navodila {
-    position: fixed;
     /* Sit on top of the page content */
     display: none;
     /* Hidden by default */

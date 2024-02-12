@@ -183,7 +183,13 @@ function reset_game() {
 reset_game()
 
 function pravila_igre(mode) {
-    document.getElementById("navodila").style.display = mode;
+    if (mode == "none") {
+        document.getElementById("navodila").style.display = "none";
+        document.getElementById("nastavitve").style.display = "block";
+    } else {
+        document.getElementById("navodila").style.display = "block";
+        document.getElementById("nastavitve").style.display = "none";
+    }
 }
 
 // logika igre
@@ -253,6 +259,7 @@ function overlay_display_mode(element, mode) {
         return 0;
     } else if (del_igre == deli_igre.BELI_ZGRESIL) {
         document.getElementById("overlay_izkljucitev").style.display = "none";
+        document.getElementById("igra").style.display = "block";
         document.getElementById("overlay_name").innerHTML = "Več sreče prihodnjič &#128549;";
         document.getElementById("overlay_word").innerHTML = "";
         document.getElementById("overlay").style.display = "block";
@@ -263,6 +270,7 @@ function overlay_display_mode(element, mode) {
         document.getElementById("overlay").style.display = mode;
         document.getElementById("overlay_izkljucitev").style.display = mode;
         document.getElementById("overlay_rezultati").style.display = mode;
+        document.getElementById("igra").style.display = "block";
         if (del_igre == deli_igre.IZBIRA_BESED) {
             if (igralci.length == calculateSum("videl_besedo")) {
                 del_igre = deli_igre.KROG_BESED_IZLOCANJE;
@@ -304,6 +312,8 @@ function overlay_display_mode(element, mode) {
                         if (isMrMeme >= 0) {
                             if ((igralci[isMrMeme].vloga == "vohun") & igralci[isMrMeme].aktiven) {
                                 igralci[i].nove_tocke = 7;
+                            } else {
+                                igralci[i].nove_tocke = 5;
                             }
                         } else {
                             igralci[i].nove_tocke = 5;
@@ -312,6 +322,8 @@ function overlay_display_mode(element, mode) {
                         if (isMrMeme >= 0) {
                             if ((igralci[isMrMeme].vloga == "gospod-v-belem") & igralci[isMrMeme].aktiven) {
                                 igralci[i].nove_tocke = 9;
+                            } else {
+                                igralci[i].nove_tocke = 7;
                             }
                         } else {
                             igralci[i].nove_tocke = 7;
@@ -326,6 +338,8 @@ function overlay_display_mode(element, mode) {
                     if (isMrMeme >= 0) {
                         if ((igralci[isMrMeme].vloga == "prebivalec") & igralci[isMrMeme].aktiven) {
                             igralci[i].nove_tocke = 4;
+                        } else {
+                            igralci[i].nove_tocke = 2;
                         }
                     } else {
                         igralci[i].nove_tocke = 2;
@@ -334,8 +348,8 @@ function overlay_display_mode(element, mode) {
             }
             del_igre = deli_igre.KONEC_IGRE;
         }
-        if (isMrMeme >= 0) {
-            if (igralci[isMrMeme].nove_tocke >= 0) {
+        if ((isMrMeme >= 0) & (del_igre == deli_igre.KONEC_IGRE)) {
+            if (igralci[isMrMeme].nove_tocke > 0) {
                 alert("Gospod Nemec je v zmagovalni ekipi.");
             }
         }
@@ -380,6 +394,7 @@ function izkljuci(element) {
         }
     }
     document.getElementById("overlay_izkljucitev").style.display = "block";
+    document.getElementById("igra").style.display = "none";
 
     card.style.opacity = 0.5;
     element.classList.remove("izkljuci_on");
@@ -454,7 +469,9 @@ function start_new_game() {
 }
 
 function pojdi_v_nastavitve() {
+    document.getElementById("overlay").style.display = "none";
     document.getElementById("overlay_rezultati").style.display = "none";
+    document.getElementById("overlay_izkljucitev").style.display = "none";
     document.getElementById("igra").style.display = "none";
     document.getElementById("menu").style.display = "none";
     document.getElementById("nastavitve").style.display = "block";
@@ -529,9 +546,9 @@ function rezultati() {
     }
     document.getElementById("menu_results").style.display = "block";
     document.getElementById("overlay_rezultati").style.display = "block";
+    document.getElementById("igra").style.display = "none";
 }
 
 // kdo je nemec naj se vidi ob imenu na kartici
 // popravi:
 // na mojem telefonu se ne prikaže gumb za izključitev
-// omogoči skrolanje po rezultatih in navodilih

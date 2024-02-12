@@ -12,48 +12,47 @@
 </head>
 
 <body>
+    <section id="navodila" onclick="pravila_igre('none')">
+        <div id="besedilo_navodil">
+            <h1>Vloge:</h1>
+            <lu>
+                <li><b>PREBIVALCI:</b> Prejmejo isto skrivno besedo. Njihova naloga je razkrinkati
+                    vohune in gospoda v belem.</li>
+                <li><b>VOHUN:</b> Dobi malenkost drugačno besedo od prebivalcev. Njegova naloga je, da se pretvarja,
+                    da je civilist.</li>
+                <li><b>GOSPOD V BELEM:</b> Ne prejme nobene besede. Njegova naloga je, da se pretvarja, da jo ima in
+                    poskuša ugotoviti besedo, ki jo imajo prebivalci.</li>
+                <li><b>GOSPOD NEMEC:</b> Lahko ima katerokoli zgornjo vlogo. Svojo besedo vedno pokaže s pantomimo.
+                    Če ostane do konca igre in je v zmagovalni ekipi, njegova ekipa dobi dodatni dve točki.</li>
+            </lu>
+
+            <h1>Potek:</h1>
+            <lu>
+                <li><b>BESEDA:</b> Vsak igralec na skrivaj prebere svojo besedo s pritiskom na svojo kartico z
+                    imenom.
+                    V tem trenutku edino gospod v belem ve, kakšna je njegova vloga.</li>
+                <li><b>OPISOVANJE:</b> Vsak igralec z eno besedo opiše svojo besedo (gospod v belem improvizira).
+                    Dobro poslušaj, da razkriješ vloge in besede ostalih igralcev. Prvi igralec gotovo ni gospod v
+                    belem.</li>
+                <li><b>IZLOČANJE:</b> Vsi igralci, ki še niso bili izločeni, se skupaj odločijo, koga bodo izločili.
+                    Vsak se lahko zagovarja in prepričuje ostale.
+                    <i>(Nasvet: najprej izloči gospoda v belem. Dlje kot ostane v igri, lažje bo uganil
+                        besedo in zmagal.)</i> Igralci glasujejo, kdo ima drugačno vlogo.
+                    Igralec z največ glasovi je izločen. V primeru neodločenosti se lahko uporabi igro
+                    škarje-kamen-papir. Po izločanju soigralcev se nadaljuje s prejšno točko.
+                </li>
+                <li><b>ZMAGA:</b> Prebivalci zmagajo, če izločijo vse ostale vloge. Vohuni in gospod v belem pa
+                    zmagajo,
+                    če ostane le še eden prebivalec. Gospod v belem zmaga, tudi kadar ugane besedo,
+                    ki jo imajo prebivalci. V primeru zmage dobijo prebivalci 2 točki,
+                    vohuni 5 in gospod v belem 7. Če je med zmagovalci gospod Nemec,
+                    njegova ekipa dobi dodatni dve točki.</li>
+            </lu>
+        </div>
+    </section>
 
     <section id='nastavitve' class='nastavitve'>
         <h1>POD KRINKO &#128372;</h1>
-
-        <div id="navodila" onclick="pravila_igre('none')">
-            <div id="besedilo_navodil">
-                <h1>Vloge:</h1>
-                <lu>
-                    <li><b>PREBIVALCI:</b> Prejmejo isto skrivno besedo. Njihova naloga je razkrinkati
-                        vohune in gospoda v belem.</li>
-                    <li><b>VOHUN:</b> Dobi malenkost drugačno besedo od prebivalcev. Njegova naloga je, da se pretvarja,
-                        da je civilist.</li>
-                    <li><b>GOSPOD V BELEM:</b> Ne prejme nobene besede. Njegova naloga je, da se pretvarja, da jo ima in
-                        poskuša ugotoviti besedo, ki jo imajo prebivalci.</li>
-                    <li><b>GOSPOD NEMEC:</b> Lahko ima katerokoli zgornjo vlogo. Svojo besedo vedno pokaže s pantomimo.
-                        Če ostane do konca igre in je v zmagovalni ekipi, njegova ekipa dobi dodatni dve točki.</li>
-                </lu>
-
-                <h1>Potek:</h1>
-                <lu>
-                    <li><b>BESEDA:</b> Vsak igralec na skrivaj prebere svojo besedo s pritiskom na svojo kartico z
-                        imenom.
-                        V tem trenutku edino gospod v belem ve, kakšna je njegova vloga.</li>
-                    <li><b>OPISOVANJE:</b> Vsak igralec z eno besedo opiše svojo besedo (gospod v belem improvizira).
-                        Dobro poslušaj, da razkriješ vloge in besede ostalih igralcev. Prvi igralec gotovo ni gospod v
-                        belem.</li>
-                    <li><b>IZLOČANJE:</b> Vsi igralci, ki še niso bili izločeni, se skupaj odločijo, koga bodo izločili.
-                        Vsak se lahko zagovarja in prepričuje ostale.
-                        <i>(Nasvet: najprej izloči gospoda v belem. Dlje kot ostane v igri, lažje bo uganil
-                            besedo in zmagal.)</i> Igralci glasujejo, kdo ima drugačno vlogo.
-                        Igralec z največ glasovi je izločen. V primeru neodločenosti se lahko uporabi igro
-                        škarje-kamen-papir. Po izločanju soigralcev se nadaljuje s prejšno točko.
-                    </li>
-                    <li><b>ZMAGA:</b> Prebivalci zmagajo, če izločijo vse ostale vloge. Vohuni in gospod v belem pa
-                        zmagajo,
-                        če ostane le še eden prebivalec. Gospod v belem zmaga, tudi kadar ugane besedo,
-                        ki jo imajo prebivalci. V primeru zmage dobijo prebivalci 2 točki,
-                        vohuni 5 in gospod v belem 7. Če je med zmagovalci gospod Nemec,
-                        njegova ekipa dobi dodatni dve točki.</li>
-                </lu>
-            </div>
-        </div>
 
         <div class="slidecontainer">
             <img src="slike/civilist.png"><img src="slike/civilistka.png"> Število igralcev:</br>
@@ -133,19 +132,20 @@
                 <div id="overlay_word">Beseda</div>
             </div>
         </div>
-        <div id="overlay_izkljucitev" onclick="overlay_display_mode(this, 'none')">
-            <div id="text_izkljucitev">
-                <img id="overlay_image"></br>
-                <div id="overlay_text_izkljucitev">Ime</div></br>
-                <div id="ugibanje_beli">
-                    <input type="text" id="ugibanje" name="ugibanje" size="20" /></br>
-                    <button class="button button_beli" onclick="ugibaj()">
-                        Ugibaj besedo
-                    </button>
-                </div>
+    </section>
+
+    <div id="overlay_izkljucitev" onclick="overlay_display_mode(this, 'none')">
+        <div id="text_izkljucitev">
+            <img id="overlay_image"></br>
+            <div id="overlay_text_izkljucitev">Ime</div></br>
+            <div id="ugibanje_beli">
+                <input type="text" id="ugibanje" name="ugibanje" size="20" /></br>
+                <button class="button button_beli" onclick="ugibaj()">
+                    Ugibaj besedo
+                </button>
             </div>
         </div>
-    </section>
+    </div>
 
     <script id="hidden-result-template" type="text/x-custom-template">
         <button id="result-1" class="button_result button_neznanec">
