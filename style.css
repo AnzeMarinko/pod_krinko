@@ -51,7 +51,8 @@ section {
 
 #igra #kartice {
     background: white;
-    border: 10px solid var(--pod-krinko-temno);
+    border: 5px solid var(--pod-krinko-temno);
+    border-radius: 16px;
 }
 
 #igra #navodilo {
@@ -299,9 +300,21 @@ input {
             display: block;
         }
     }
+
+    &:active {
+        transform: scale(1.03);
+
+        .izkljuci_on {
+            display: block;
+        }
+    }
 }
 
 .izkljuci_on:hover {
+    transform: scale(1.2);
+}
+
+.izkljuci_on:active {
     transform: scale(1.2);
 }
 
