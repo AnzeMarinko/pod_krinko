@@ -255,7 +255,7 @@ function overlay_display_mode(element, mode) {
             }
             igralci[parseInt(element.id.substring(4))].videl_besedo = true;
         } else if (del_igre == deli_igre.KROG_BESED_IZLOCANJE) {
-            element.querySelector('div[id="izkljuci_gumb"]').style.display = "block";
+            // element.querySelector('div[id="izkljuci_gumb"]').style.display = "block";
         }
     } else if (del_igre == deli_igre.BELI_UGIBA) {
         return 0;
