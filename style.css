@@ -423,8 +423,8 @@ input {
 .button_result {
     margin: 5px 5px;
     border: none;
-    width: 500px;
-    max-width: 80%;
+    width: 400px;
+    max-width: 90%;
     color: white;
     padding: 8px 12px;
     text-decoration: none;
@@ -456,4 +456,8 @@ input {
 
 .button_result .nove_tocke {
     color: greenyellow;
+}
+
+progress {
+    width: 80%;
 }
