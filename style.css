@@ -65,7 +65,8 @@ section {
 
 .slidecontainer {
     padding: 5px;
-    width: 100%;
+    margin: auto;
+    width: 95%;
     /* Width of the outside container */
     font-size: 18px;
     color: white;
@@ -82,7 +83,7 @@ input {
     -webkit-appearance: none;
     /* Override default CSS styles */
     appearance: none;
-    width: 100%;
+    width: 90%;
     max-width: 500pt;
     height: 25px;
     /* Specified height */
