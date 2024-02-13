@@ -369,7 +369,7 @@ function overlay_display_mode(element, mode) {
 function izkljuci(element) {
     var card = element.parentNode;
     var izkljuceni = parseInt(card.id.substring(4));
-    change_badge_visibility("none");
+    element.style.display = "none";
 
     if (igralci[izkljuceni].vloga == "gospod-v-belem") {
         document.getElementById("overlay_text_izkljucitev").innerHTML = igralci[izkljuceni].ime + " je gospod v belem";
@@ -491,7 +491,6 @@ function ugibaj() {
         igralci[ugibajoci_beli].aktiven = true;
         card.style.opacity = 1.0;
         del_igre = deli_igre.BELI_UGANIL;
-        change_badge_visibility("none");
         overlay_display_mode("", "none");
     } else {
         del_igre = deli_igre.BELI_ZGRESIL;
@@ -554,4 +553,4 @@ function rezultati() {
     document.getElementById("igra").style.display = "none";
 }
 
-// kdo je nemec naj se vidi ob imenu na kartici
+// popravi max_beli in max_vohunov glede na st_igralcev
