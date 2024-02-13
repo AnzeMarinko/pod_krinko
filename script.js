@@ -290,6 +290,9 @@ function overlay_display_mode(element, mode) {
         }
         prvi_namig = igralci[nebeli[Math.floor(Math.random() * nebeli.length)]].ime;
         document.getElementById("navodilo").innerHTML = "Prvi namig poda " + prvi_namig + ".<br>Po enem krogu začnite z izločanjem.";
+        if (isMrMeme >= 0) {
+            document.getElementById("navodilo").innerHTML += "<br>" + igralci[isMrMeme].ime + " je gospod Nemec.";
+        }
 
         var aktivni_prebivalci = prestej_vloge("prebivalec");
         var aktivni_vohuni = prestej_vloge("vohun");
