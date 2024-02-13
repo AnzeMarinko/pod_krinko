@@ -111,6 +111,8 @@ const pari_besed = [
 var nPlayersSlider = document.getElementById("nPlayersSlider");
 var nPlayersText = document.getElementById("nPlayersText");
 var nPlayers = 0;
+var maxOthers = 2;
+var minOthers = 1;
 var nUndercoverSlider = document.getElementById("nUndercoverSlider");
 var nUndercoversText = document.getElementById("nUndercoversText");
 var nUndercovers = 0;
@@ -138,10 +140,11 @@ function set_number_of_players() {
         }
     };
     nPlayers = nPlayersSlider.value;
-    nUndercoversSlider.value = Math.ceil(nPlayers / 5);
-    nUndercoversSlider.max = Math.floor(nPlayers / 3);
-    nWhitesSlider.value = Math.floor(nPlayers / 5);
-    nWhitesSlider.max = Math.floor(nPlayers / 4);
+    maxOthers = Math.floor(nPlayers / 2);
+    nUndercoversSlider.value = Math.ceil(maxOthers / 2);
+    nUndercoversSlider.max = maxOthers;
+    nWhitesSlider.value = Math.floor(maxOthers / 2);
+    nWhitesSlider.max = Math.ceil(maxOthers / 2);
     set_number_of_undercovers();
     set_number_of_whites();
 }
@@ -149,11 +152,25 @@ function set_number_of_players() {
 function set_number_of_undercovers() {
     nUndercoversText.innerHTML = nUndercoversSlider.value;
     nUndercovers = nUndercoversSlider.value;
+    if (nWhitesSlider.value > maxOthers - nUndercoversSlider.value) {
+        nWhitesSlider.value = maxOthers - nUndercoversSlider.value;
+        set_number_of_whites();
+    } else if (nWhitesSlider.value + nUndercoversSlider.value < minOthers) {
+        nWhitesSlider.value = minOthers - nUndercoversSlider.value;
+        set_number_of_whites();
+    }
 }
 
 function set_number_of_whites() {
     nWhitesText.innerHTML = nWhitesSlider.value;
     nWhites = nWhitesSlider.value;
+    if (nUndercoversSlider.value > maxOthers - nWhitesSlider.value) {
+        nUndercoversSlider.value = maxOthers - nWhitesSlider.value;
+        set_number_of_undercovers();
+    } else if (nWhitesSlider.value + nUndercoversSlider.value < minOthers) {
+        nUndercoversSlider.value = minOthers - nWhitesSlider.value;
+        set_number_of_undercovers();
+    }
 }
 
 nPlayersSlider.oninput = function () {
@@ -552,5 +569,3 @@ function rezultati() {
     document.getElementById("overlay_rezultati").style.display = "block";
     document.getElementById("igra").style.display = "none";
 }
-
-// popravi max_beli in max_vohunov glede na st_igralcev
