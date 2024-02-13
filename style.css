@@ -83,7 +83,8 @@ input {
     -webkit-appearance: none;
     /* Override default CSS styles */
     appearance: none;
-    width: 90%;
+    width: 95%;
+    margin: auto;
     max-width: 500pt;
     height: 25px;
     /* Specified height */
