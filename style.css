@@ -308,6 +308,14 @@ input {
             display: block;
         }
     }
+
+    &:focus {
+        transform: scale(1.03);
+
+        .izkljuci_on {
+            display: block;
+        }
+    }
 }
 
 .izkljuci_on:hover {
@@ -315,6 +323,10 @@ input {
 }
 
 .izkljuci_on:active {
+    transform: scale(1.2);
+}
+
+.izkljuci_on:focus {
     transform: scale(1.2);
 }
 
