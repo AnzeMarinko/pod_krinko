@@ -292,17 +292,9 @@ input {
     border: 2px solid;
     border-radius: 8px;
     transition: all .3s;
-
-    &:hover {
-        transform: scale(1.03);
-
-        .izkljuci_on {
-            display: block;
-        }
-    }
 }
 
-.izkljuci_on:hover {
+.izkljuci:hover {
     transform: scale(1.2);
 }
 
@@ -313,6 +305,7 @@ input {
 .button:hover {
     color: black;
     background-color: white;
+    transform: scale(1.03);
 }
 
 .button:hover img {

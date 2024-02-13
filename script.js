@@ -233,9 +233,9 @@ function prestej_vloge(vloga) {
 function change_badge_visibility(mode) {
     for (let element of document.getElementsByClassName("izkljuci")) {
         if (mode == "block") {
-            element.classList.add("izkljuci_on");
+            element.style.display = "block";
         } else {
-            element.classList.remove("izkljuci_on");
+            element.style.display = "none";
         }
     }
 }
@@ -254,8 +254,6 @@ function overlay_display_mode(element, mode) {
                 document.getElementById("overlay_word").innerHTML = "Ti si gospod v belem ;)";
             }
             igralci[parseInt(element.id.substring(4))].videl_besedo = true;
-        } else if (del_igre == deli_igre.KROG_BESED_IZLOCANJE) {
-            // element.querySelector('div[id="izkljuci_gumb"]').style.display = "block";
         }
     } else if (del_igre == deli_igre.BELI_UGIBA) {
         return 0;
@@ -368,6 +366,7 @@ function overlay_display_mode(element, mode) {
 function izkljuci(element) {
     var card = element.parentNode;
     var izkljuceni = parseInt(card.id.substring(4));
+    change_badge_visibility("none");
 
     if (igralci[izkljuceni].vloga == "gospod-v-belem") {
         document.getElementById("overlay_text_izkljucitev").innerHTML = igralci[izkljuceni].ime + " je gospod v belem";
@@ -553,6 +552,3 @@ function rezultati() {
 }
 
 // kdo je nemec naj se vidi ob imenu na kartici
-// popravi:
-// na mojem telefonu se ne prikaže gumb za izključitev:
-// naj se pokaže ko klikneš kartico in vsi izginejo, ko je nekdo izključen
