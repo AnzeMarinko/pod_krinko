@@ -292,7 +292,7 @@ function overlay_display_mode(element, mode) {
             if (igralci.length == calculateSum("videl_besedo")) {
                 del_igre = deli_igre.KROG_BESED_IZLOCANJE;
                 if (isMrMeme >= 0) {
-                    alert(igralci[isMrMeme].ime + " je gospod Nemec.");
+                    setTimeout(function () { alert(igralci[isMrMeme].ime + " je gospod Nemec."); }, 1000);
                 }
                 change_badge_visibility("block");
             } else {

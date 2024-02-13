@@ -294,6 +294,31 @@ input {
     transition: all .3s;
 }
 
+.button_result {
+    margin: 5px 5px;
+    border: none;
+    width: 400px;
+    max-width: 90%;
+    color: white;
+    padding: 8px 12px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-family: Monospace;
+    opacity: 1;
+    border: 2px solid;
+    border-radius: 8px;
+    transition: all .3s;
+
+    &:hover {
+        transform: scale(1.03);
+        color: black;
+        background-color: white;
+    }
+}
+
 .izkljuci:hover {
     transform: scale(1.2);
 }
@@ -413,34 +438,9 @@ input {
     transition: all .3s;
 }
 
-.button_result {
-    margin: 5px 5px;
-    border: none;
-    width: 400px;
-    max-width: 90%;
-    color: white;
-    padding: 8px 12px;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    transition-duration: 0.4s;
-    cursor: pointer;
-    font-family: Monospace;
-    opacity: 1;
-    color: white;
-    border: 2px solid;
-    border-radius: 8px;
-    transition: all .3s;
-
-    &:hover {
-        transform: scale(1.03);
-        color: black;
-        background-color: white;
-    }
-}
-
 .button_result img {
     height: 30px;
+    transform: rotateY(180deg);
 }
 
 .button_result .name {
@@ -448,7 +448,8 @@ input {
 }
 
 .button_result .nove_tocke {
-    color: greenyellow;
+    background-color: greenyellow;
+    color: black;
 }
 
 progress {
