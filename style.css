@@ -8,11 +8,16 @@
     --neznanka: #66C148;
 }
 
+html {
+    overscroll-behavior: none;
+}
+
 body {
     margin: 0;
     font-family: Monospace;
     background: var(--pod-krinko-temno);
     color: white;
+    overscroll-behavior: none;
 }
 
 h1 {
