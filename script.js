@@ -491,14 +491,17 @@ function start_new_game() {
 }
 
 function pojdi_v_nastavitve() {
-    document.getElementById("overlay").style.display = "none";
-    document.getElementById("overlay_rezultati").style.display = "none";
-    document.getElementById("overlay_izkljucitev").style.display = "none";
-    document.getElementById("igra").style.display = "none";
-    document.getElementById("menu").style.display = "none";
-    document.getElementById("nastavitve").style.display = "block";
-    igralci = [];
-    kartice.innerHTML = "";
+    if (confirm("Želite res nazaj v nastavitve?\nPodatki o igralcih se bodo ohranili,\n" +
+            "ampak točke se bodo ponastavile!")) {
+        document.getElementById("overlay").style.display = "none";
+        document.getElementById("overlay_rezultati").style.display = "none";
+        document.getElementById("overlay_izkljucitev").style.display = "none";
+        document.getElementById("igra").style.display = "none";
+        document.getElementById("menu").style.display = "none";
+        document.getElementById("nastavitve").style.display = "block";
+        igralci = [];
+        kartice.innerHTML = "";
+    }
 }
 
 function ugibaj() {
@@ -520,7 +523,8 @@ var osebe_rezultati = document.getElementById("osebe_rezultati");
 var besedi_rezultati = document.getElementById("besedi_rezultati");
 
 function rezultati() {
-    var igralci_sortirani = igralci.sort((a, b) => b.tocke - a.tocke);
+    var igralci_sortirani = igralci.slice();
+    igralci_sortirani.sort((a, b) => b.tocke - a.tocke);
     osebe_rezultati.innerHTML = "";
     besedi_rezultati.innerHTML = "";
     var max_tock = Math.max(1, igralci_sortirani[0].tocke);
@@ -541,20 +545,20 @@ function rezultati() {
         } else {
             last_div.style.opacity = 0.5;
         }
-        if ((del_igre == deli_igre.KONEC_IGRE) | (!igralci[i].aktiven)) {
-            if (igralci[i].vloga == "prebivalec") {
-                if (igralci[i].spol == "m") {
+        if ((del_igre == deli_igre.KONEC_IGRE) | (!igralci_sortirani[i].aktiven)) {
+            if (igralci_sortirani[i].vloga == "prebivalec") {
+                if (igralci_sortirani[i].spol == "m") {
                     last_div.className = "button_result button_civilist";
                 } else {
                     last_div.className = "button_result button_civilistka";
                 }
-            } else if (igralci[i].vloga == "vohun") {
+            } else if (igralci_sortirani[i].vloga == "vohun") {
                 last_div.className = "button_result button_agent";
             } else {
                 last_div.className = "button_result button_beli";
             }
         } else {
-            if (igralci[i].spol == "m") {
+            if (igralci_sortirani[i].spol == "m") {
                 last_div.className = "button_result button_neznanec";
             } else {
                 last_div.className = "button_result button_neznanka";
