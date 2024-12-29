@@ -281,31 +281,7 @@ function overlay_display_mode(element, mode) {
         document.getElementById("overlay_word").innerHTML = "";
         document.getElementById("overlay").style.display = "block";
         setTimeout(function () { del_igre = deli_igre.KROG_BESED_IZLOCANJE; }, 1000);
-    } else if (del_igre == deli_igre.BELI_UGANIL) {
-        document.getElementById("overlay_izkljucitev").style.display = "none";
-        document.getElementById("igra").style.display = "block";
-        document.getElementById("overlay_name").innerHTML = "Bravo, uspešno si ugotovil besedo!";
-        document.getElementById("overlay_word").innerHTML = "";
-        document.getElementById("overlay").style.display = "block";
-        if (isMrMeme == ugibajoci_beli) {
-            igralci[ugibajoci_beli].nove_tocke = 9;
-        } else {
-            igralci[ugibajoci_beli].nove_tocke = 7;
-        }
-        setTimeout(function () { del_igre = deli_igre.KONEC_IGRE; }, 1000);
     } else if (del_igre == deli_igre.KONEC_IGRE) {
-        if ((isMrMeme >= 0) & (del_igre == deli_igre.KONEC_IGRE)) {
-            if (igralci[isMrMeme].nove_tocke > 0) {
-                alert("Gospod Nemec je v zmagovalni ekipi.");
-            }
-        }
-
-        if (del_igre == deli_igre.KONEC_IGRE) {
-            for (var i = 0; i < igralci.length; i++) {
-                igralci[i].tocke += igralci[i].nove_tocke;
-            }
-            rezultati();
-        }
         return 0;
     } else {
         document.getElementById("overlay").style.display = mode;
@@ -342,7 +318,14 @@ function overlay_display_mode(element, mode) {
         document.getElementById("stanje_vohuni").innerHTML = "Preostali vohuni: " + aktivni_vohuni;
         document.getElementById("stanje_beli").innerHTML = "Preostali gospodje v belem: " + aktivni_beli;
 
-        if (aktivni_prebivalci == 1) {
+        if (del_igre == deli_igre.BELI_UGANIL) {
+            if (isMrMeme == ugibajoci_beli) {
+                igralci[ugibajoci_beli].nove_tocke = 9;
+            } else {
+                igralci[ugibajoci_beli].nove_tocke = 7;
+            }
+            del_igre = deli_igre.KONEC_IGRE;
+        } else if (aktivni_prebivalci == 1) {
             for (var i = 0; i < igralci.length; i++) {
                 if (igralci[i].aktiven) {
                     if (igralci[i].vloga == "vohun") {
@@ -384,6 +367,18 @@ function overlay_display_mode(element, mode) {
                 }
             }
             del_igre = deli_igre.KONEC_IGRE;
+        }
+        if ((isMrMeme >= 0) & (del_igre == deli_igre.KONEC_IGRE)) {
+            if (igralci[isMrMeme].nove_tocke > 0) {
+                alert("Gospod Nemec je v zmagovalni ekipi.");
+            }
+        }
+
+        if (del_igre == deli_igre.KONEC_IGRE) {
+            for (var i = 0; i < igralci.length; i++) {
+                igralci[i].tocke += igralci[i].nove_tocke;
+            }
+            rezultati();
         }
     }
 }
