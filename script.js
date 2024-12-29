@@ -324,7 +324,9 @@ function overlay_display_mode(element, mode) {
             } else {
                 igralci[ugibajoci_beli].nove_tocke = 7;
             }
-            del_igre = deli_igre.KONEC_IGRE;
+            document.getElementById("overlay_name").innerHTML = "Bravo, uspešno si ugotovil besedo!";
+            document.getElementById("overlay").style.display = "block";
+            setTimeout(function () { del_igre = deli_igre.KONEC_IGRE; }, 1000);
         } else if (aktivni_prebivalci == 1) {
             for (var i = 0; i < igralci.length; i++) {
                 if (igralci[i].aktiven) {
@@ -351,7 +353,7 @@ function overlay_display_mode(element, mode) {
                     }
                 }
             }
-            del_igre = deli_igre.KONEC_IGRE;
+            setTimeout(function () { del_igre = deli_igre.KONEC_IGRE; }, 1000);
         } else if (aktivni_vohuni + aktivni_beli == 0) {
             for (var i = 0; i < igralci.length; i++) {
                 if ((igralci[i].aktiven) & (igralci[i].vloga == "prebivalec")) {
@@ -366,7 +368,7 @@ function overlay_display_mode(element, mode) {
                     }
                 }
             }
-            del_igre = deli_igre.KONEC_IGRE;
+            setTimeout(function () { del_igre = deli_igre.KONEC_IGRE; }, 1000);
         }
         if ((isMrMeme >= 0) & (del_igre == deli_igre.KONEC_IGRE)) {
             if (igralci[isMrMeme].nove_tocke > 0) {
