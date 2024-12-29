@@ -324,7 +324,7 @@ function overlay_display_mode(element, mode) {
             } else {
                 igralci[ugibajoci_beli].nove_tocke = 7;
             }
-            del_igre = deli_igre.KONEC_IGRE;
+            setTimeout(function () { del_igre = deli_igre.KONEC_IGRE; }, 1000);
         } else if (aktivni_prebivalci == 1) {
             for (var i = 0; i < igralci.length; i++) {
                 if (igralci[i].aktiven) {
