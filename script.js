@@ -325,7 +325,6 @@ function overlay_display_mode(element, mode) {
                 igralci[ugibajoci_beli].nove_tocke = 7;
             }
             del_igre = deli_igre.KONEC_IGRE;
-            alert("Čestitamo, pravilen odgovor!");
         } else if (aktivni_prebivalci == 1) {
             for (var i = 0; i < igralci.length; i++) {
                 if (igralci[i].aktiven) {
@@ -481,7 +480,9 @@ function start_new_game() {
     var besedi = randomItem(pari_besed)[0];
     var i = Math.round(Math.random());
     beseda_prebivalci = besedi[i];
-    beseda_vohuni = besedi[Math.abs(i - 1)];
+    if (nUndercovers > 0) {
+        beseda_vohuni = besedi[Math.abs(i - 1)];
+    };
     del_igre = deli_igre.IZBIRA_BESED;
     zmagovalci = {};
     change_badge_visibility("none");
@@ -510,6 +511,7 @@ function ugibaj() {
     var uspeh = (poskus == beseda_prebivalci.toLowerCase());
     if (uspeh) {
         igralci[ugibajoci_beli].aktiven = true;
+        var card = document.getElementById("card" + ugibajoci_beli.toString());
         card.style.opacity = 1.0;
         del_igre = deli_igre.BELI_UGANIL;
         overlay_display_mode("", "none");
